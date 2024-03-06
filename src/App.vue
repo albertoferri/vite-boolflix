@@ -1,5 +1,5 @@
 <script>
-import axios from 'axios';
+
 import {store} from './store';
 
 import AppSearch from './components/AppSearch.vue';
@@ -18,29 +18,21 @@ export default{
     AppFilmList,
   }, 
   
-  created(){
-
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=98ec842db674b61824e779cc047239d7&query=ritorno+al+futuro')
-      .then(res => {
-        console.log('film: ', res.data.results[0])
-        this.store.films = res.data.results[0];
-      });
-
-  },
+  
 
   methods: {
 
-    searchFilm() {
+    // searchFilm() {
 
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=98ec842db674b61824e779cc047239d7&query=ritorno+al+futuro')
-        .then(res => {
-          // console.log(res.data.results[0])
+    //   axios.get('https://api.themoviedb.org/3/search/movie?api_key=98ec842db674b61824e779cc047239d7&query=ritorno+al+futuro')
+    //     .then(res => {
+    //       console.log(res.data.results[0])
 
-          this.store.films = res.data.results[0];
-        });
+    //       this.store.films = res.data.results;
+    //     });
 
-      console.log("Ricerca percepita")
-    },
+    //   console.log("Ricerca percepita")
+    // },
   },
 
 
@@ -53,7 +45,7 @@ export default{
 <template>
 
 <div class="container">
-  <AppSearch @search="searchFilm()"></AppSearch>
+  <AppSearch></AppSearch>
   <AppFilmList></AppFilmList>
 
 </div>

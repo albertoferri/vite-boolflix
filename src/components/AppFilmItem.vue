@@ -12,10 +12,10 @@ export default{
   
 
     <li class="film">
-        <h3> {{ film.title }} </h3>
-        <h4></h4>
-        <p></p>
-        <p></p>
+        <h5> {{ film.title }} </h5>
+        <h5>{{ film.original_title }}</h5>
+        <h5>{{ film.original_language }}</h5>
+        <h5>{{ film.vote_average }}</h5>
     </li>
 
 
@@ -23,6 +23,18 @@ export default{
 </template>
 
 <style lang="scss">
+@use '../styles/variables' as *;
 
+
+.film{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: calc(100% / 5  - $filmGap);
+
+
+    list-style-type: none;
+}
 
 </style>
