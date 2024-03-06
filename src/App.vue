@@ -35,7 +35,7 @@ export default{
 
 <template>
 
-<div class="container">
+<div class="container-lg container-sm-fluid py-5">
 
   <AppSearch></AppSearch>
   <AppFilmList></AppFilmList>

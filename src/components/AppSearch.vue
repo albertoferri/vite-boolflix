@@ -37,10 +37,10 @@ export default{
 <!-- -----  HTML  ------ -->
 <template>
 
-    <div class="container-fluid p-3 d-flex justify-content-between bg-dark gap-2 ">
+    <div class="container-fluid p-3 d-flex justify-content-between bg-dark gap-2 rounded-top-4">
         <h1 class="text-danger ">BOOLFLIX</h1>
         <div class="search-box d-flex align-items-center gap-2">
-            <input v-model="this.inputSearch" @keyup.enter="searchFilm" type="text" name="SearchBar" placeholder="Cerca" class="p-1">
+            <input v-model="this.inputSearch" @keyup.enter="searchFilm" type="text" name="SearchBar" placeholder="Cerca" class="p-1 rounded-2 border-0">
             <button @click="searchFilm" class="btn btn-outline-danger fw-bold">Cerca</button>
         </div>
     </div>

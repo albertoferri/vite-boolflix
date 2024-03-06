@@ -21,7 +21,7 @@ export default{
 
 <template>
 
-    <ul id="list-container" class="d-flex flex-wrap justify-content-around p-3 mb-0 bg-dark">
+    <ul id="list-container" class="d-flex flex-wrap justify-content-around p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
         <AppFilmItem
         v-for="currentFilm in store.films"
         :film="currentFilm"
@@ -37,6 +37,8 @@ export default{
 
     #list-container{
         gap: $filmGap;
+
+        border-top: 2px solid;
     }
 
 

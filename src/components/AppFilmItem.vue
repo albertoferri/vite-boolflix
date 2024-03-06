@@ -11,7 +11,7 @@ export default{
 <template>
   
 
-    <li class="film bg-light">
+    <li class="film bg-light rounded-4">
         <h5>Titolo:  {{ film.title }} </h5>
         <h5>Titolo originale:  {{ film.original_title }}</h5>
         <h5>lingua:  {{ film.original_language }}</h5>
@@ -34,7 +34,6 @@ export default{
     text-align: center;
     width: calc(100% / 3  - $filmGap);
 
-    border-radius: 20px;
     padding: 10px;
     color: #212529;
 
