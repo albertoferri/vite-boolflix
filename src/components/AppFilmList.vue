@@ -21,7 +21,7 @@ export default{
 
 <template>
 
-    <ul id="list-container" class="d-flex flex-wrap justify-content-around p-3 mb-0">
+    <ul id="list-container" class="d-flex flex-wrap justify-content-around p-3 mb-0 bg-dark">
         <AppFilmItem
         v-for="currentFilm in store.films"
         :film="currentFilm"
