@@ -21,11 +21,18 @@ export default{
 
 <template>
 
-    <ul id="list-container" class="d-flex flex-wrap justify-content-around p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
+
+    <ul id="list-container" class="d-flex flex-wrap p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
         <AppFilmItem
         v-for="currentFilm in store.films"
         :film="currentFilm"
-        :key="currentFilm"
+        :key="currentFilm.id"
+        ></AppFilmItem>
+
+        <AppFilmItem
+        v-for="currentSerie in store.series"
+        :film="currentSerie"
+        :key="currentSerie.id"
         ></AppFilmItem>
     </ul>
   

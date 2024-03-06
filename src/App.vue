@@ -19,7 +19,7 @@ export default{
     AppFilmList,
   },
   created() {
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=98ec842db674b61824e779cc047239d7&query=ritorno+al+futuro')
+    axios.get('https://api.themoviedb.org/3/search/movie?api_key=98ec842db674b61824e779cc047239d7&query=spongebob')
       .then(res => {
           console.log('film generati all\'inizio: ', res.data.results);
           this.store.films = res.data.results;
