@@ -4,6 +4,12 @@ export default{
 
     props: {
         film: Object,
+    },
+    computed: {
+        flagImage() {
+        // Sostituisci 'path/to/flags' con il percorso della tua cartella delle bandiere
+        return `../../public/img/${this.film.original_language}.png`;
+        }
     }
 }
 </script>
@@ -14,7 +20,9 @@ export default{
     <li class="film bg-light rounded-4">
         <h5>Titolo:  {{ film.title }} </h5>
         <h5>Titolo originale:  {{ film.original_title }}</h5>
-        <h5>lingua:  {{ film.original_language }}</h5>
+        <h5>lingua:
+            <img class="img-fluid" :src="flagImage" :alt="film.original_language">  
+        </h5>
         <h5>voto:  {{ film.vote_average }}</h5>
     </li>
 
@@ -39,6 +47,7 @@ export default{
 
 
     list-style-type: none;
+    
 
     
 }
