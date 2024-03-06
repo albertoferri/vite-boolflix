@@ -1,3 +1,4 @@
+<!-- -----  JS  ------ -->
 <script>
 import {store} from '../store.js';
 
@@ -20,7 +21,7 @@ export default{
 
 <template>
 
-    <ul class="d-flex flex-wrap justify-content-between p-3 mb-0">
+    <ul id="list-container" class="d-flex flex-wrap justify-content-around p-3 mb-0">
         <AppFilmItem
         v-for="currentFilm in store.films"
         :film="currentFilm"
@@ -33,12 +34,10 @@ export default{
 <style lang="scss">
 @use '../styles/variables' as *;
 
-ul{
-    gap: $filmGap;
-}
 
-
-
+    #list-container{
+        gap: $filmGap;
+    }
 
 
 

@@ -11,11 +11,11 @@ export default{
 <template>
   
 
-    <li class="film">
-        <h5> {{ film.title }} </h5>
-        <h5>{{ film.original_title }}</h5>
-        <h5>{{ film.original_language }}</h5>
-        <h5>{{ film.vote_average }}</h5>
+    <li class="film ">
+        <h5>Titolo:  {{ film.title }} </h5>
+        <h5>Titolo originale:  {{ film.original_title }}</h5>
+        <h5>lingua:  {{ film.original_language }}</h5>
+        <h5>voto:  {{ film.vote_average }}</h5>
     </li>
 
 
@@ -24,14 +24,14 @@ export default{
 
 <style lang="scss">
 @use '../styles/variables' as *;
+@use '../styles/mixin.scss' as *;
 
 
 .film{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include col-center;
+    gap: $filmGap;
     text-align: center;
-    width: calc(100% / 5  - $filmGap);
+    width: calc(100% / 3  - $filmGap);
 
 
     list-style-type: none;

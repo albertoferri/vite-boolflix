@@ -1,3 +1,4 @@
+<!-- -----  JS  ------ -->
 <script>
 import axios from 'axios';
 
@@ -11,36 +12,44 @@ export default{
             inputSearch: '',
         }
     },
+    
+
     methods: {
+        // qui ho creato una funzione per formattare la stringa inserita in modo da essere letta correttamente dall'api
+        // quindi ho creato una variabile che verrà inserita dinamicamente dato che ho inserito la variabile nei data
         searchFilm() {
             let formattedInput = this.inputSearch.split(' ').join('+');
             let api = `https://api.themoviedb.org/3/search/movie?api_key=98ec842db674b61824e779cc047239d7&query=${formattedInput}`;
 
             axios.get(api)
             .then(res => {
-                console.log('film: ', res.data.results);
                 this.store.films = res.data.results;
-                console.log(this.store.films);
+                console.log('film: ', this.store.films);
             });
         }
     }
-
-
-    
 }
-
 
 </script>
 
+
+
+<!-- -----  HTML  ------ -->
 <template>
 
-    <div class="container-fluid p-3 d-flex gap-2 ">
-        <input type="text" name="SearchBar" v-model="this.inputSearch" placeholder="Cerca">
-        <button @click="searchFilm" class="btn btn-outline-danger fw-bold">Cerca</button>
+    <div class="container-fluid p-3 d-flex justify-content-between  gap-2 ">
+        <h1 class="text-danger ">BOOLFLIX</h1>
+        <div class="search-box d-flex align-items-center gap-2">
+            <input v-model="this.inputSearch" @keyup.enter="searchFilm" type="text" name="SearchBar" placeholder="Cerca" class="p-1">
+            <button @click="searchFilm" class="btn btn-outline-danger fw-bold">Cerca</button>
+        </div>
     </div>
 
 </template>
 
+
+
+<!-- -----  CSS  ------ -->
 <style lang="scss">
 
 
