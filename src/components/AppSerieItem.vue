@@ -8,24 +8,43 @@ export default{
     computed: {
         flagImage() {
             return `./img/${this.serie.original_language}.png`;
+        },
+        stelle() {
+            // Trasforma il voto da 1-10 a 1-5
+            return Math.round(this.serie.vote_average / 2);
+        }
+    },
+    methods: {
+        stampaStelle() {
+            let stellePiene = '';
+            let stelleVuote = '';
+
+            // Stampa le stelle piene
+            for(let i = 0; i < this.stelle; i++) {
+                stellePiene += '<i class="fas fa-star"></i>'; // Stampa una stella piena
+            }
+
+            // Stampa le stelle vuote
+            for(let i = this.stelle; i < 5; i++) {
+                stelleVuote += '<i class="far fa-star"></i>'; // Stampa una stella vuota
+            }
+
+            return stellePiene + stelleVuote;
         }
     }
 }
 </script>
 
-<template>
-  
 
+<template>
     <li class="serie bg-light rounded-4">
         <h5>Titolo:  {{ serie.name }} </h5>
         <h5>Titolo originale:  {{ serie.original_name }}</h5>
         <img class="img-fluid" :src="flagImage" :alt="serie.original_language">
-        <h5>voto:  {{ serie.vote_average }}</h5>
+        <div> <i class="fa-solid fa-truck-fast"></i> </div>
     </li>
-
-
-
 </template>
+
 
 <style lang="scss">
 @use '../styles/variables' as *;
