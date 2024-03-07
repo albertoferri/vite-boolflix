@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios'
 
+
 import {store} from './store';
 
 import AppSearch from './components/AppSearch.vue';
@@ -19,10 +20,16 @@ export default{
     AppFilmList,
   },
   created() {
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=98ec842db674b61824e779cc047239d7&query=spongebob')
+    axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=98ec842db674b61824e779cc047239d7')
       .then(res => {
           console.log('film generati all\'inizio: ', res.data.results);
           this.store.films = res.data.results;
+      });
+
+      axios.get('https://api.themoviedb.org/3/tv/top_rated?api_key=98ec842db674b61824e779cc047239d7')
+      .then(res => {
+          console.log('serie tv generate all\'inizio: ', res.data.results);
+          this.store.series = res.data.results;
       });
   },
 
@@ -34,7 +41,7 @@ export default{
 
 <template>
 
-<div class="container-lg container-sm-fluid py-5">
+<div class="container-sm-fluid pb-5">
 
   <AppSearch></AppSearch>
   <AppFilmList></AppFilmList>

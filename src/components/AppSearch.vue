@@ -48,7 +48,7 @@ export default{
 <!-- -----  HTML  ------ -->
 <template>
 
-    <div class="container-fluid p-3 d-flex justify-content-between bg-dark gap-2 rounded-top-4">
+    <div class="container-fluid p-3 d-flex justify-content-between bg-dark gap-2">
         <img src="/img/logo.png" alt="">
         <div class="search-box d-flex align-items-center gap-2">
             <input v-model="this.inputSearch" @keyup.enter="searchFilm" type="text" name="SearchBar" placeholder="Cerca" class="p-1 rounded-2 border-0 text-light ">

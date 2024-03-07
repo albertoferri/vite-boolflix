@@ -2,8 +2,7 @@
 <script>
 import {store} from '../store.js';
 
-import AppFilmItem from './AppFilmItem.vue';
-import AppSerieItem from './AppSerieItem.vue';
+import AppItem from './AppItem.vue';
 
 export default{
     name: 'AppFilmList',
@@ -15,8 +14,7 @@ export default{
     },
 
     components: {
-        AppFilmItem,
-        AppSerieItem,
+        AppItem,
     }
 }
 </script>
@@ -25,25 +23,25 @@ export default{
 
     <div class="container-fluid px-0">
 
-        <div class="films bg-dark text-white mb-3 rounded-bottom-4">
-            <h3 class="px-2">FILM</h3>
+        <div class="films bg-dark text-white mb-3 rounded-bottom-4 px-4">
+            <h3 class="px-3">FILM</h3>
             <ul id="film-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-bottom-4 border-top border-3 border-danger">
-                <AppFilmItem
+                <AppItem
                 v-for="currentFilm in store.films"
                 :film="currentFilm"
                 :key="currentFilm.id"
-                ></AppFilmItem>
+                ></AppItem>
             </ul>
         </div>
 
-        <div class="series bg-dark text-light rounded-4">
-            <h3 class="p-2 border-bottom border-danger border-3">SERIE TV</h3>
+        <div class="series bg-dark text-light rounded-4 px-4">
+            <h3 class="p-3 border-bottom border-danger border-3">SERIE TV</h3>
             <ul id="series-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-4 border-danger">
-                <AppSerieItem
+                <AppItem
                 v-for="currentSerie in store.series"
-                :serie="currentSerie"
+                :film="currentSerie"
                 :key="currentSerie.id"
-                ></AppSerieItem>
+                ></AppItem>
             </ul>
         </div>
 
@@ -64,4 +62,4 @@ export default{
 
 
 
-</style>
+</style>./AppItem.vue/index.js
