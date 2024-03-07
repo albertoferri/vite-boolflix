@@ -1,9 +1,9 @@
 <script>
 export default{
-    name: 'AppFilmItem',
+    name: 'AppSerieItem',
 
     props: {
-        film: Object,
+        serie: Object,
     },
     computed: {
         flagImage() {
@@ -16,11 +16,11 @@ export default{
 <template>
   
 
-    <li class="film bg-light rounded-4">
-        <h5>Titolo:  {{ film.title }} </h5>
-        <h5>Titolo originale:  {{ film.original_title }}</h5>
-        <img class="img-fluid" :src="flagImage" :alt="film.original_language">
-        <h5>voto:  {{ film.vote_average }}</h5>
+    <li class="serie bg-light rounded-4">
+        <h5>Titolo:  {{ serie.name }} </h5>
+        <h5>Titolo originale:  {{ serie.original_name }}</h5>
+        <img class="img-fluid" :src="flagImage" :alt="serie.original_language">
+        <h5>voto:  {{ serie.vote_average }}</h5>
     </li>
 
 
@@ -33,7 +33,7 @@ export default{
 
 
 
-.film{
+.serie{
     @include col-center;
     gap: $filmGap;
     text-align: center;

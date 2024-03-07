@@ -2,7 +2,8 @@
 <script>
 import {store} from '../store.js';
 
-import AppFilmItem from '../components/AppFilmItem.vue';
+import AppFilmItem from './AppFilmItem.vue';
+import AppSerieItem from './AppSerieItem.vue';
 
 export default{
     name: 'AppFilmList',
@@ -15,26 +16,32 @@ export default{
 
     components: {
         AppFilmItem,
+        AppSerieItem,
     }
 }
 </script>
 
 <template>
 
+    <div class="container-fluid px-0 d-flex flex-column gap-5  ">
 
-    <ul id="list-container" class="d-flex flex-wrap p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
-        <AppFilmItem
-        v-for="currentFilm in store.films"
-        :film="currentFilm"
-        :key="currentFilm.id"
-        ></AppFilmItem>
+        <ul id="film-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
+            <AppFilmItem
+            v-for="currentFilm in store.films"
+            :film="currentFilm"
+            :key="currentFilm.id"
+            ></AppFilmItem>
+        </ul>
 
-        <AppFilmItem
-        v-for="currentSerie in store.series"
-        :film="currentSerie"
-        :key="currentSerie.id"
-        ></AppFilmItem>
-    </ul>
+        <ul id="series-container" class="d-flex flex-wrap p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
+            <AppSerieItem
+            v-for="currentSerie in store.series"
+            :serie="currentSerie"
+            :key="currentSerie.id"
+            ></AppSerieItem>
+        </ul>
+
+    </div>
   
 </template>
 
