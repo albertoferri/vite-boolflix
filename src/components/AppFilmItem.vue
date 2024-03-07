@@ -37,7 +37,7 @@ export default{
     @include col-center;
     gap: $filmGap;
     text-align: center;
-    width: calc(100% / 5  - $filmGap);
+    width: calc(100% / 3  - $filmGap);
 
     padding: 10px;
     color: #212529;

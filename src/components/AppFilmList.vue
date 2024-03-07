@@ -23,23 +23,29 @@ export default{
 
 <template>
 
-    <div class="container-fluid px-0 d-flex flex-column gap-5  ">
+    <div class="container-fluid px-0">
 
-        <ul id="film-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
-            <AppFilmItem
-            v-for="currentFilm in store.films"
-            :film="currentFilm"
-            :key="currentFilm.id"
-            ></AppFilmItem>
-        </ul>
+        <div class="films bg-dark text-white mb-3 rounded-bottom-4">
+            <h3 class="px-2">FILM</h3>
+            <ul id="film-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-bottom-4 border-top border-3 border-danger">
+                <AppFilmItem
+                v-for="currentFilm in store.films"
+                :film="currentFilm"
+                :key="currentFilm.id"
+                ></AppFilmItem>
+            </ul>
+        </div>
 
-        <ul id="series-container" class="d-flex flex-wrap p-3 mb-0 bg-dark rounded-bottom-4 border-danger">
-            <AppSerieItem
-            v-for="currentSerie in store.series"
-            :serie="currentSerie"
-            :key="currentSerie.id"
-            ></AppSerieItem>
-        </ul>
+        <div class="series bg-dark text-light rounded-4">
+            <h3 class="p-2 border-bottom border-danger border-3">SERIE TV</h3>
+            <ul id="series-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-4 border-danger">
+                <AppSerieItem
+                v-for="currentSerie in store.series"
+                :serie="currentSerie"
+                :key="currentSerie.id"
+                ></AppSerieItem>
+            </ul>
+        </div>
 
     </div>
   

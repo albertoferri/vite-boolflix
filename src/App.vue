@@ -23,7 +23,6 @@ export default{
       .then(res => {
           console.log('film generati all\'inizio: ', res.data.results);
           this.store.films = res.data.results;
-          console.log(this.store.films);
       });
   },
 
