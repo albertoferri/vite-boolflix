@@ -25,7 +25,7 @@ export default{
 
         <div class="films bg-dark text-white mb-3 rounded-bottom-4 px-4">
             <h3 class="px-3">FILM</h3>
-            <ul id="film-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-bottom-4 border-top border-3 border-danger">
+            <ul id="film-container" class="d-flex flex-wrap justify-content-between row-gap-3 p-3 mb-0 bg-dark rounded-bottom-4 border-top border-3 border-danger">
                 <AppItem
                 v-for="currentFilm in store.films"
                 :film="currentFilm"
@@ -34,9 +34,9 @@ export default{
             </ul>
         </div>
 
-        <div class="series bg-dark text-light rounded-4 px-4">
+        <div class="series bg-dark text-light rounded-top-4 px-4">
             <h3 class="p-3 border-bottom border-danger border-3">SERIE TV</h3>
-            <ul id="series-container" class="d-flex flex-wrap justify-content-between gap-3 p-3 mb-0 bg-dark rounded-4 border-danger">
+            <ul id="series-container" class="d-flex flex-wrap justify-content-between row-gap-3 p-3 mb-0 bg-dark rounded-4 border-danger">
                 <AppItem
                 v-for="currentSerie in store.series"
                 :film="currentSerie"
@@ -54,7 +54,6 @@ export default{
 
 
     #list-container{
-        gap: $filmGap;
 
         border-top: 2px solid;
     }

@@ -41,7 +41,7 @@ export default{
 
 <template>
 
-<div class="container-sm-fluid pb-5">
+<div class="container-sm-fluid mb-5">
 
   <AppSearch></AppSearch>
   <AppFilmList></AppFilmList>
