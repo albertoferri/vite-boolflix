@@ -5,6 +5,7 @@ export default{
     props: {
         film: Object,
         serie: Object,
+        width: String,
     },
     computed: {
         flagImage() {
@@ -31,32 +32,34 @@ export default{
 
             // Stampa le stelle piene
             for(let i = 0; i < this.stelle; i++) {
-                stellePiene += '<i class="fas fa-star"></i>'; 
+                stellePiene += '<i class="fas fa-star text-warning"></i>'; 
             }
 
             // Stampa le stelle vuote
             for(let i = this.stelle; i < 5; i++) {
-                stelleVuote += '<i class="far fa-star"></i>'; 
+                stelleVuote += '<i class="fas fa-star"></i>'; 
             }
 
-            return stellePiene + stelleVuote;
+            return "Voto: " + stellePiene + stelleVuote;
         }
     }
 }
 </script>
 
 <template>
-    <li class="film rounded-4">
-        <img class=" w-100" :src="film && film.poster_path ? 'https://image.tmdb.org/t/p/w342' + film.poster_path : 'https://aimint.org/ap/wp-content/uploads/sites/18/2016/04/image-placeholder-vertical.jpg'" alt="">
+    <!-- componente singolo -->
+    <li class="film rounded-4" :style="{ width: width }">
+        <img class="w-100" tabindex="0" :src="film && film.poster_path ? 'https://image.tmdb.org/t/p/w342' + film.poster_path : 'https://aimint.org/ap/wp-content/uploads/sites/18/2016/04/image-placeholder-vertical.jpg'" alt="">
         <div id="info" class="text-white p-2 overflow-y-auto">
-            <h5><strong>Titolo:</strong>  {{ film && film.title || serie && serie.name }} </h5>
-            <h5><strong>Titolo originale:</strong>  {{ film && film.original_title || serie && serie.original_title }}</h5>
+            <h5><strong>Titolo:</strong>  {{ film.name || film.title }} </h5>
+            <h5><strong>Titolo originale:</strong>  {{ film.original_name || film.original_title }} </h5>
             <h5 id="stars" v-html="stampaStelle()"></h5>
-            <img class="img-fluid" :src="flagImage" :alt="film && film.original_language || serie && serie.original_language">
-            <p><strong>Trama:</strong> {{ film.overview }} </p>
+            <img class="img-fluid" :src="flagImage" :alt="film.original_language || serie.original_language">
+            <p><strong>Trama:</strong> <small>{{ film.overview }}</small></p>
         </div>
     </li>
 </template>
+
 
 
 <style lang="scss">
@@ -68,7 +71,7 @@ export default{
 .film{
     @include col-center;
     text-align: center;
-    width: calc(100% / 5);
+    // width: calc(100% / 4);
 
     color: #212529;
 
@@ -82,16 +85,16 @@ export default{
         display: none;
         position: absolute;
         bottom: 10px;
-        background-color: #212529a8;
+        background-color: #212529d5;
         width: 90%;
         max-height: 90%;
 
         text-align: left;
     }
     
-    &:hover #info {
-        display: block;
-    }
+    img:focus + #info {
+    display: block;
+}
     
 
     

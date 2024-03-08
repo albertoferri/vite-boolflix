@@ -12,6 +12,7 @@ export default{
     return {
 
       store,
+
     }
   },
 
@@ -41,7 +42,7 @@ export default{
 
 <template>
 
-<div class="container-sm-fluid mb-5">
+<div class="container-fluid mb-5 px-0">
 
   <AppSearch></AppSearch>
   <AppFilmList></AppFilmList>
