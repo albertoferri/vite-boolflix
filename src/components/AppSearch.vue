@@ -66,20 +66,20 @@ export default{
             <img class="d-block d-md-none" src="/img/logo-small.png" alt="">
             
             <div class="dropdown">
-                <button @click="filterGenre('https://api.themoviedb.org/3/genre/movie/list?api_key=98ec842db674b61824e779cc047239d7')" class="btn btn-outline-danger d-none d-md-flex px-2 text-light bg-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button @click="filterGenre('https://api.themoviedb.org/3/genre/movie/list?api_key=98ec842db674b61824e779cc047239d7')" class="btn btn-danger d-none d-md-flex px-2 text-light bg-dark border-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     SERIE TV
                 </button>
-                <ul class="dropdown-menu bg-dark">
+                <ul class="dropdown-menu bg-dark rounded-4">
                     <li v-for="item in this.store.genres" :key="item.name" @click="filterByGenre(item.name)">
                         <a class="dropdown-item text-light " href="#">{{ item.name }}</a>
                     </li>
                 </ul>
             </div>
             <div class="dropend">
-                <button @click="filterGenre('https://api.themoviedb.org/3/genre/tv/list?api_key=98ec842db674b61824e779cc047239d7')" class="btn btn-secondary d-none d-md-flex px-2 text-light bg-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button @click="filterGenre('https://api.themoviedb.org/3/genre/tv/list?api_key=98ec842db674b61824e779cc047239d7')" class="btn btn-danger d-none d-md-flex px-2 text-light bg-dark border-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     FILM
                 </button>
-                <ul class="dropdown-menu bg-dark">
+                <ul class="dropdown-menu bg-dark rounded-4">
                     <li v-for="item in this.store.genres" :key="item.name" >
                         <a class="dropdown-item text-light" href="#">{{ item.name }}</a>
                     </li>
@@ -89,7 +89,7 @@ export default{
 
         <div class="search-box d-flex align-items-center gap-2 w-50">
             <input v-model="this.inputSearch" @keyup.enter="searchFilm" type="text" name="SearchBar" placeholder="Cerca" class="p-2 rounded-2 border-0 text-light w-100">
-            <button @click="searchFilm" class="btn btn-outline-danger fw-bold d-none d-md-flex">Cerca</button>
+            <button @click="searchFilm" class="btn btn-outline-danger fw-bold d-none d-md-flex border-2">Cerca</button>
         </div>
     </div>
 

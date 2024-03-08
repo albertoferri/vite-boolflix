@@ -40,8 +40,8 @@ export default{
         
         <div class="films bg-dark text-white mb-3 rounded-bottom-4 px-4">
             <!-- select delle colonne -->
-            <div class="select d-flex justify-content-end ">
-                <select class="" v-model="columns">
+            <div class="select d-flex justify-content-end">
+                <select class="border-danger border-2 rounded-2 text-center mb-2" v-model="columns">
                     <option v-for="option in options" :value="option.value" :key="option.value">{{ option.label }}</option>
                 </select>
             </div>
@@ -82,15 +82,10 @@ export default{
 
         select{
             width: 150px;
-            text-align: center;
             padding: 6px 8px;
             margin-bottom: 1em;
         }
 
-
     }
-
-
-
 
 </style>

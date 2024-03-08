@@ -42,7 +42,7 @@ export default{
 
 <template>
 
-<div class="container-fluid mb-5 px-0">
+<div class="container-fluid mb-5 bg-danger px-0">
 
   <AppSearch></AppSearch>
   <AppFilmList></AppFilmList>
