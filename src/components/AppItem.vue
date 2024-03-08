@@ -1,6 +1,6 @@
 <script>
 export default{
-    name: 'AppFilmItem',
+    name: 'AppItem',
 
     props: {
         film: Object,

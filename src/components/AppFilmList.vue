@@ -8,17 +8,17 @@ export default{
     name: 'AppFilmList',
 
     data() {
-    return {
-      store,
-    //   dati della select
-      options: [
-        { value: 3, label: '3 Colonne' },
-        { value: 4, label: '4 Colonne', selected: true },
-        { value: 5, label: '5 Colonne' },
-        { value: 6, label: '6 Colonne' },
-      ],
-      columns: 4,
-      };
+        return {
+            store,
+            //   dati della select
+            options: [
+                { value: 3, label: '3 Colonne' },
+                { value: 4, label: '4 Colonne' },
+                { value: 5, label: '5 Colonne', selected: true },
+                { value: 6, label: '6 Colonne' },
+            ],
+            columns: 5,
+        };
     },
 
     components: {

@@ -39,7 +39,7 @@ export default{
                 console.log('serie tv: ', this.store.series);
             });
         },
-        fetchGenres(apiURL) {
+        filterGenre(apiURL) {
             axios.get(apiURL)
                 .then(response => {
                     this.store.genres = response.data.genres;
@@ -47,6 +47,9 @@ export default{
                 })
                 .catch(error => console.error(error));
         },
+        filterByGenre(genre) {
+            this.$emit('filter-genre', genre);
+        }
     }
 }
 
@@ -61,8 +64,27 @@ export default{
         <nav class="d-flex align-items-center gap-5">
             <img class="d-none d-md-block" src="/img/logo.png" alt="">
             <img class="d-block d-md-none" src="/img/logo-small.png" alt="">
-            <span @click="fetchGenres('https://api.themoviedb.org/3/genre/movie/list?api_key=98ec842db674b61824e779cc047239d7')" class="d-none d-md-flex px-2 text-light">SERIE TV</span>
-            <span @click="fetchGenres('https://api.themoviedb.org/3/genre/tv/list?api_key=98ec842db674b61824e779cc047239d7')" class="d-none d-md-flex px-2 text-light">FILM</span>
+            
+            <div class="dropdown">
+                <button @click="filterGenre('https://api.themoviedb.org/3/genre/movie/list?api_key=98ec842db674b61824e779cc047239d7')" class="btn btn-outline-danger d-none d-md-flex px-2 text-light bg-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    SERIE TV
+                </button>
+                <ul class="dropdown-menu bg-dark">
+                    <li v-for="item in this.store.genres" :key="item.name" @click="filterByGenre(item.name)">
+                        <a class="dropdown-item text-light " href="#">{{ item.name }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="dropend">
+                <button @click="filterGenre('https://api.themoviedb.org/3/genre/tv/list?api_key=98ec842db674b61824e779cc047239d7')" class="btn btn-secondary d-none d-md-flex px-2 text-light bg-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    FILM
+                </button>
+                <ul class="dropdown-menu bg-dark">
+                    <li v-for="item in this.store.genres" :key="item.name" >
+                        <a class="dropdown-item text-light" href="#">{{ item.name }}</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
         <div class="search-box d-flex align-items-center gap-2 w-50">
