@@ -53,6 +53,7 @@ export default{
                 :film="currentFilm"
                 :key="currentFilm.id"
                 :width="containerWidth"
+                class="item"
                 ></AppItem>
             </ul>
         </div>
@@ -66,6 +67,7 @@ export default{
                 :film="currentSerie"
                 :key="currentSerie.id"
                 :width="containerWidth"
+                class="item"
                 ></AppItem>
             </ul>
         </div>
@@ -86,6 +88,11 @@ export default{
             margin-bottom: 1em;
         }
 
+    }
+
+    .item{
+        cursor: pointer;
+        padding: 0 5px;
     }
 
 </style>

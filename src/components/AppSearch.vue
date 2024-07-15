@@ -27,18 +27,25 @@ export default{
 
             // Chiamata API per i film
             axios.get(movieApi)
-                .then(res => {
+            .then(res => {
                 this.store.films = res.data.results;
                 console.log('film: ', this.store.films);
+                if (this.store.films.length === 0) {
+                    window.location.href = "/no-results";
+                }
             });
 
             // Chiamata API per le serie TV
             axios.get(seriesApi)
-                .then(res => {
+            .then(res => {
                 this.store.series = res.data.results; 
                 console.log('serie tv: ', this.store.series);
+                if (this.store.series.length === 0) {
+                    window.location.href = "/no-results";
+                }
             });
         },
+
         filterGenre(apiURL) {
             axios.get(apiURL)
                 .then(response => {
@@ -47,12 +54,12 @@ export default{
                 })
                 .catch(error => console.error(error));
         },
+        
         filterByGenre(genre) {
             this.$emit('filter-genre', genre);
         }
     }
 }
-
 </script>
 
 
@@ -62,7 +69,7 @@ export default{
 
     <div id="box" class="container-fluid py-3 px-4 d-flex justify-content-between bg-dark gap-2">
         <nav class="d-flex align-items-center gap-5">
-            <img class="d-none d-md-block" src="/img/logo.png" alt="">
+            <a href="/"><img class="d-none d-md-block" src="/img/logo.png" alt=""></a>
             <img class="d-block d-md-none" src="/img/logo-small.png" alt="">
             
             <div class="dropdown">
